@@ -6,5 +6,6 @@ def generate_natural_cubes(n):
         numbers = [i**3 for i in range (1, n+1)]
         return numbers
 
+
 print (generate_natural_cubes(8))
 

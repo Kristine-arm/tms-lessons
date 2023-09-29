@@ -6,5 +6,4 @@ def is_year_leap (n):
     else:
         return ('false')
 
-
 print (is_year_leap (2012))

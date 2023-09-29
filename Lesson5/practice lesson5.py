@@ -77,7 +77,6 @@ def get_natural_numbers (n):
 
 print (get_natural_numbers(6))
 
-
 #Напишите функцию filter_odd_numbers, которая принимает на вход список целых чисел и возвращает новый список, состоящий из элементов первоначального, но без нечётных чисел.
 def get_odd_numbers(my_list):
     odd_list= []
