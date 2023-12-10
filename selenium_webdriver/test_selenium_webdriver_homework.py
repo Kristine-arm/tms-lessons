@@ -36,22 +36,25 @@ def hover_over_element(driver, xpath):
     ActionChains(driver).move_to_element(element).perform()
 
 class TestSeleniumPageHomework:
-    def test_selenium(self, driver):
+        def test_selenium(self, driver):
         card_button_xpath = "//*[@href = '/cards']"
         red_card_button_xpath = "//*[contains(@title, 'Красная карта 2.0')]"
-        input_phone_number_button_xpath = "//*[@aria-label='Номер мобильного телефона']"
+        input_phone_number_button_xpath = ("//*[@aria-label='Номер мобильного телефона']")
         submit_xpath = "//*[@type = 'submit']"
-        identification_text_xpath = "//*[contains(text(), 'Пройдите идентификацию')]"
+        identification_text_xpath = ("//*[contains(text(), 'Пройдите идентификацию')]")
         go_to_msi_button_xpath = "//*[contains(text(), 'Перейти в МСИ')]"
 
         driver.get("https://myfin.by/")
 
-        input_field = assert_element(driver, input_phone_number_button_xpath, clickable=True)
-
-        input_field.send_keys("299402265")
-
         hover_over_element(driver, card_button_xpath)
         click(driver, red_card_button_xpath)
+
+        # Переключиться
+        driver.switch_to.window(driver.window_handles[-1])
+
+        input_field = assert_element(driver, input_phone_number_button_xpath, clickable=True)
+        input_field.send_keys("299402265")
+
         click(driver, submit_xpath)
 
         identification_text = assert_element(driver, identification_text_xpath)
@@ -59,5 +62,6 @@ class TestSeleniumPageHomework:
 
         assert identification_text.is_displayed()
         assert go_to_msi_button.is_displayed()
+
 
     ...
